@@ -1,0 +1,60 @@
+@import "variables";
+
+.box-form {
+  background: #FFFFFF;
+  padding: 16px 12px;
+  border: 1px solid #E0E0E0;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  // -webkit-box-shadow: 0px 4px 4px rgba(177, 177, 177, 0.15);
+  box-shadow: 11px 13px 19px -7px rgba(0,0,0,0.1);
+-webkit-box-shadow: 11px 13px 19px -7px rgba(0,0,0,0.1);
+-moz-box-shadow: 11px 13px 19px -7px rgba(0,0,0,0.1);
+}
+
+*{
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.frame{
+  background: #FFFFFF;
+  border: 1px solid $gray;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  box-shadow: 11px 13px 19px -7px rgba(0,0,0,0.1);
+  width: 50%;
+  height: 230px;
+  .title{
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 1px solid $gray;
+  }
+  .puzzle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.btn{
+  color: #ffff;
+  background: $primary;
+  border: 1px solid $primary;
+  border-radius: 3px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  cursor: pointer;
+}
+.r-btn{
+  border-radius: 50%;
+}
+.btn:hover{
+  background: $primary-darker;
+}
+.mt-1{
+  margin-top: 2px;
+}
