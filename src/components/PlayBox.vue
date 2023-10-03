@@ -1,13 +1,14 @@
 <template>
   <div class="page-content">
     <div class="container box-form">
-    <div class="frame mt-1" id="goal-frame">
+    <div class="frame" id="goal-frame">
       <div class="title">Goal image</div>
       <div class="puzzle">
         <Puzzle ref="goalPuzzle"
           :type="1"
           :matrix="goalMatrix"
           :playable="editGoal"
+          :active="goalMatrixActive"
         />
       </div>
     </div>
@@ -21,7 +22,7 @@
       <div class="btn btn-icon" @click="sufferStartMatrix" title="Tạo ma trận bắt đầu ngẫu nhiên">
         <icon icon="fad:random-1dice" height="25px" />
       </div>
-      <div class="btn btn-icon" @click="selfPickingStart" title="Tự sắp xếp ma trận ban đầu">
+      <div class="btn btn-icon" @click="selfPickingStart_Fnc" title="Tự sắp xếp ma trận ban đầu">
         <icon icon="game-icons:jigsaw-piece" height="25px" />
       </div>
       <div class="btn btn-icon" @click="sufferStartMatrix" title="Bắt đầu chơi">
@@ -38,11 +39,12 @@
           :type="1"
           :matrix="startMatrix"
           :playable="playing"
+          :active="startMatrixActive"
         />
       </div>
     </div>
     <div class="box-form" v-show="selfPickingStart">
-      <div class="btn r-btn btn-icon" @click="sufferStartMatrix" title="Sử dụng AI">
+      <div class="btn r-btn btn-icon" @click="confirmStartMatrix" title="Sử dụng AI">
         <icon icon="material-symbols:done-rounded" height="25px" />
       </div>
     </div>
@@ -72,16 +74,19 @@ export default {
       editGoal: false,
       playing: false,
       selfPickingStart: false,
+      goalMatrixActive: false,
+      startMatrixActive: false,
     };
   },
   methods: {
     changeGoalMatrix() {
       this.editGoal = true;
+      this.goalMatrixActive = true;
     },
     confirmGoalMatrix() {
       this.editGoal = false;
       this.goalMatrix = this.$refs.goalPuzzle.matrix;
-      console.log(this.goalMatrix);
+      this.goalMatrixActive = false;
     },
     sufferStartMatrix(){
       this.startMatrix = [];
@@ -95,8 +100,11 @@ export default {
         }
       }
     },
-    selfPickingStart(){
+    selfPickingStart_Fnc(){
       this.selfPickingStart = true;
+    },
+    confirmStartMatrix(){
+      this.selfPickingStart = false;
     },
   },
 };
@@ -122,6 +130,15 @@ export default {
   width: 30%;
   min-height: 90vh;
   margin-top: 10px;
-  padding-top: 0px;
+  // padding-top: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media screen and (min-height: 1000px) {
+  .container {
+    padding: 40px 20px;
+  }
 }
 </style>
