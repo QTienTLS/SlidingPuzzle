@@ -1,6 +1,9 @@
 <template>
-  <div :style="{ width: size + 'px', height: size + 'px' }" class="piece" :class="value?'':'empty',active?'active':''">
+  <div v-if="type ==1 || type==2" :style="{ width: size + 'px', height: size + 'px' }" class="piece" :class="value?'':'empty',active?'active':''">
     {{ value }}
+  </div>
+  <div v-else :style="{ width: size + 'px', height: size + 'px' }"
+  class="waiting piece">
   </div>
 </template>
 
@@ -27,6 +30,7 @@
         required: true,
         default: 50,
       },
+    },methods: {
     },
   }
 </script>
@@ -50,4 +54,10 @@
     background-color: $gray;
     color: $gray;
   }
+
+  .waiting{
+    border: 1px solid $gray;
+    background-color: #fff;
+  }
+
 </style>
