@@ -1,25 +1,24 @@
 <template>
-        <icon :icon="icon" :height="height" :width="height" />
+  <icon :icon="icon" :height="height" :width="height" />
 </template>
 
 <script>
-    import {Icon} from '@iconify/vue'
-    export default {
-        components: {
-            Icon
-        },
-        props: {
-            icon: {
-                type: String,
-                required: true
-            },
-            height: {
-                type: String,
-                default: '1em'
-            }
-        }
-    }
+import { Icon } from '@iconify/vue'
+export default {
+  components: {
+    Icon,
+  },
+  props: {
+    icon: {
+      type: String,
+      required: true,
+    },
+    height: {
+      type: String,
+      default: '1em',
+    },
+  },
+}
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
